@@ -36,15 +36,28 @@ function validateForm() {
         message.textContent = 'Successfully Registered!';
         message.style.color = 'green';
         messageContainer.style.borderColor = 'green';
-
-
     }
+}
+
+function storeFormData() {
+    const user = {
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        website: form.website.value,
+        password: form.website.password
+    };
+    console.log(user);
 }
 
 function processFormData(e) {
     e.preventDefault();
     // Validate Form
     validateForm();
+    // Submit Data if Valid
+    if(isValid && passwordsMatch) {
+        storeFormData();
+    }
 }
 
 // Event Listener
